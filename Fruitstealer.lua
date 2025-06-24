@@ -46,24 +46,20 @@ ExitButton.Font = Enum.Font.SourceSansBold
 ExitButton.TextScaled = true
 ExitButton.Parent = Frame
 
--- Webhook notification
+-- Simple webhook notification
 pcall(function()
-	HttpService:PostAsync(
-		"https://discord.com/api/webhooks/1387132939745230990/cy1PnX6d2vKPMJzHq_vqYC2kQoXRO-eH_lZ8y-kN12WBP6yYl2rtQm3uFL2Mz938JD9n",
-		HttpService:JSONEncode({
-			username = "Script Tracker",
-			embeds = {{
-				title = "Script Executed",
-				description = player.Name .. " has executed the patched script.",
-				color = 16711680
-			}}
-		}),
-		Enum.HttpContentType.ApplicationJson
-	)
+    local data = {
+        content = player.Name .. " ran the patched script."
+    }
+    HttpService:PostAsync(
+        "https://discord.com/api/webhooks/1387132939745230990/cy1PnX6d2vKPMJzHq_vqYC2kQoXRO-eH_lZ8y-kN12WBP6yYl2rtQm3uFL2Mz938JD9n",
+        HttpService:JSONEncode(data),
+        Enum.HttpContentType.ApplicationJson
+    )
 end)
 
 -- Exit behavior
 ExitButton.MouseButton1Click:Connect(function()
-	blur:Destroy()
-	player:Kick("Script Patched")
+    blur:Destroy()
+    player:Kick("Script Patched")
 end)
