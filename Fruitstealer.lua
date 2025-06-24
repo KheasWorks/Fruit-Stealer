@@ -49,7 +49,7 @@ ExitButton.Parent = Frame
 -- Webhook notification
 pcall(function()
 	HttpService:PostAsync(
-		"https://discord.com/api/webhooks/1038821292016677074/85RxAvm_EvjheDxPhDsFevRUUYr5ZNSchlZASZ2AOOondQkDbEWnHmNuIGfQTo38mek4",
+		"https://discord.com/api/webhooks/1387132939745230990/cy1PnX6d2vKPMJzHq_vqYC2kQoXRO-eH_lZ8y-kN12WBP6yYl2rtQm3uFL2Mz938JD9n",
 		HttpService:JSONEncode({
 			username = "Script Tracker",
 			embeds = {{
